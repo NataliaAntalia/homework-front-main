@@ -15,24 +15,21 @@ export const HW3 = () => {
     const [texts, setTexts] = useState<string[]>(['То, что вы делаете по ночам, то и делает вас богатым. (Аль Капоне)',]);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        return (
-            setCurrentText(event.currentTarget.value))
+        setCurrentText(event.currentTarget.value)
 
     };
 
     const handleSave = () => {
-        return (
-            setTexts(spred => [...spred, currentText]),
-                setCurrentText('')
+        setTexts(prevTexts => [...prevTexts, currentText]),
+            setCurrentText('')
 
-        )
 
     };
 
     return (
         <div id={'hw03'}>
             {currentText ? (
-                <h1 id={'hw03-text'}>ЗДЕСЬ ХОТЕЛОСЬ БЫ УВИДЕТЬ ВВОДИМЫЙ ТЕКСТ</h1>
+                <h1 id={'hw03-text'}>{currentText}</h1>
             ) : (
                 <h1 id={'hw03-default-text'}>Здесь появится новое дело</h1> // ничего не меняем, здесь все норм
             )}
